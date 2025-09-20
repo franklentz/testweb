@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My SK001 Item Page</title>
+  <!-- GA4 base tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9ET8MPMYE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G9ET8MPMYE');
+  </script>
+</head>
+<body>
+    <h1>Red T-Shirt</h1>
+
+    <script>
+        // Send custom page_view with a title
+        gtag("event", "page_view", {
+            page_title: "Red T-Shirt Page",
+            page_location: "http://localhost/red-tshirt",
+            page_path: "/red-tshirt"
+        });
+
+        // Send ecommerce view_item event
+        gtag("event", "view_item", {
+            currency: "EUR",
+            value: 18.99,
+            items: [{
+                item_id: "SKU001",
+                item_name: "Red T-Shirt",
+                item_brand: "Acme",
+                item_category: "Apparel",
+                price: 18.99
+            }]
+        });
+    </script>
+</body>
+
+</html>
