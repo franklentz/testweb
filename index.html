@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My SK001 Item Page</title>
+  <meta charset="UTF-8">
+  <title>Red T-Shirt Page</title>
+
   <!-- GA4 base tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9ET8MPMYE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    // Initialize GA4 with your Measurement ID
     gtag('config', 'G-G9ET8MPMYE');
+
+    // Optional: enable debug mode so events appear in DebugView
+    gtag('set', 'debug_mode', true);
   </script>
 </head>
 <body>
-    <h1>Red T-Shirt</h1>
+  <h1>Red T-Shirt</h1>
+  <p>Local test page for GA4 ecommerce tracking.</p>
 
-    <script>
-        // Send custom page_view with a title
-        gtag("event", "page_view", {
-            page_title: "Red T-Shirt Page",
-            page_location: "http://localhost/red-tshirt",
-            page_path: "/red-tshirt"
-        });
+  <script>
+    // Fire events after page loads to ensure GA4 is ready
+    window.addEventListener('load', function() {
+      // Custom page_view (optional if you want a different title/path)
+      gtag("event", "page_view", {
+        page_title: "Red T-Shirt Page",
+        page_location: "http://localhost/red-tshirt",
+        page_path: "/red-tshirt"
+      });
 
-        // Send ecommerce view_item event
-        gtag("event", "view_item", {
-            currency: "EUR",
-            value: 18.99,
-            items: [{
-                item_id: "SKU001",
-                item_name: "Red T-Shirt",
-                item_brand: "Acme",
-                item_category: "Apparel",
-                price: 18.99
-            }]
-        });
-    </script>
+      // Ecommerce view_item event
+      gtag("event", "view_item", {
+        currency: "EUR",
+        value: 18.99,
+        items: [{
+          item_id: "SKU001",
+          item_name: "Red T-Shirt",
+          item_brand: "Acme",
+          item_category: "Apparel",
+          price: 18.99
+        }]
+      });
+
+      alert("GA4 events sent: page_view + view_item");
+    });
+  </script>
 </body>
-
 </html>
